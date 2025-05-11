@@ -1,0 +1,28 @@
+@extends('layouts.main')
+@section('container')
+<main class="content">
+    <div class="container-fluid">
+        <div class="col-lg-12">
+            <h2 class="text-uppercase">{{ $page_title}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+@endsection
