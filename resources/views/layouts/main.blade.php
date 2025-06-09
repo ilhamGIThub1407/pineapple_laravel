@@ -7,6 +7,7 @@
     <title>Pineapple Website</title>
     <link rel="stylesheet" href="{{ asset('css/style.css?load_time='.date('Y-m-d H:i:s')) }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -27,10 +28,30 @@
                     <p><a href="">Blogs</a></p>
                     <p><a href="">Order</a></p>
                 </div>
+
+                @if(session('isLoggedIn'))
+                    <li class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expand="false">
+                            {{ session('user_name') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
+                            @csrf
+                        </form>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="javascript:avoid(0); " class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); ">
+                                    Logout
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                @endif
+
+
             </header>
         </div>
     @endif
-
 
     @yield('container')
 
@@ -47,9 +68,13 @@
     </section>
     @endif
 
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    @if($javascript_file)
+    <script src="{{ asset('js/'.$javascript_file) }}"></script>
+    @endif
 </body>
 
 </html>

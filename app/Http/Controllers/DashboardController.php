@@ -13,7 +13,7 @@ class DashboardController extends Controller
                 
                 'current_page' => 'dashboard',
                 'javascript_file' => '',
-                
+                'data_list' => Order::all(),
                 'page_title' => 'Dashboard'
             ]
         );

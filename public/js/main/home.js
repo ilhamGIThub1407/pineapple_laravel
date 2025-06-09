@@ -27,7 +27,7 @@ $(document).ready(function(){
                 $("#submit").val('Sending Order...').css('font-style', 'italic');
             },
             success:function(){
-                $('<div class="alert alert-info">Pesanan Anda berhasil dikirim. Tunggu konfirmasi dari kami untuk proses selanjutnya.</div>').insertAfter('#order-form');
+                $('<div class="alert alert-info">Your order has been successfully submitted. Please wait for our confirmation for the next steps.</div>').insertAfter('#order-form');
             },
             error:function(response){
                 if(response.status === 422){

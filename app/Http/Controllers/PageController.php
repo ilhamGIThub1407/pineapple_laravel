@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+
 class PageController extends Controller
 {
     public function index()
@@ -13,15 +14,21 @@ class PageController extends Controller
             [
                 'current_page' => 'home',
                 'products' => Product::all(),
-
-            
+                'javascript_file' => 'main/home.js'
             ]
         );
     }
 
     public function about()
     {
+        return view('pages.main.about',
+            [
+                'current_page' => 'about',
+                
 
+            
+            ]
+        );
     }
 
     public function products()

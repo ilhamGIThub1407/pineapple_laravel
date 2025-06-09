@@ -55,4 +55,17 @@ $(document).ready(function(){
         });
     });
 
+document.getElementById('product_video').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const videoPreview = document.getElementById('video_preview');
+
+        if (file && file.type.startsWith('video/')) {
+            const videoURL = URL.createObjectURL(file);
+            videoPreview.src = videoURL;
+            videoPreview.style.display = 'block';
+        } else {
+            videoPreview.src = '';
+            videoPreview.style.display = 'none';
+        }
+    });
 });
