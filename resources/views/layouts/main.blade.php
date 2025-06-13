@@ -22,11 +22,20 @@
                 </div>
 
                 <div class="head-right">
-                    <p><a href="">Home</a></p>
-                    <p><a href="">About</a></p>
+
+                    @if($navigations)
+                        @foreach($navigations as $navigation)
+                            <p><a href="">{{ $navigation->name }}</a></p>
+                        @endforeach
+                    @endif    
+
+                    
+                    <!-- <p><a href="">About</a></p>
                     <p><a href="">Products</a></p>
                     <p><a href="">Blogs</a></p>
                     <p><a href="">Order</a></p>
+                    <p><a href="">Login</a></p> -->
+
                 </div>
 
                 @if(session('isLoggedIn'))
