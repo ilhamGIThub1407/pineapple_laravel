@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Navigation;
 
 class OrderController extends Controller
 {
@@ -37,7 +38,7 @@ class OrderController extends Controller
         return view(
             'pages.admin.order_detail',
             [
-                
+                'navigations' => Navigation::where('category', 'admin')->where('status', 'show')->get(),
                 'current_page' => 'order',
                 'javascript_file' => '',
                 'detail' => Order::find($order_id),

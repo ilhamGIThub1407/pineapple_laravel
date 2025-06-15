@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Navigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +21,7 @@ class ProductManagementController extends Controller
         return view(
             $this->view_directory . 'index',
             [
-                
+                'navigations' => Navigation::where('category', 'admin')->where('status', 'show')->get(),
                 'page_title' => $this->page_title,
                 'current_page' => $this->url,
                 'data' => Product::paginate(4),
@@ -34,7 +36,7 @@ class ProductManagementController extends Controller
         return view(
             $this->view_directory . 'create',
             [
-                
+                'navigations' => Navigation::where('category', 'admin')->where('status', 'show')->get(),
                 'page_title' => $this->page_title,
                 'current_page' => $this->url,
                 'javascript_file' => 'admin/product/create.js',
@@ -85,7 +87,7 @@ class ProductManagementController extends Controller
         return view(
             $this->view_directory . 'edit',
             [
-                
+                'navigations' => Navigation::where('category', 'admin')->where('status', 'show')->get(),
                 'page_title' => $this->page_title,
                 'current_page' => $this->url,
                 'detail' => Product::find($id),
