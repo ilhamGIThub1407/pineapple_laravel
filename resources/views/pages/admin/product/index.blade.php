@@ -9,9 +9,9 @@
         </div>
         <div class="row mb-3">
             <div class="col-lg-12 d-flex justify-content-end mb-3">
-                
-                <a href="{{ url(path: $current_page.'/create') }}" class="btn btn-primary">Add New Product</a>
-                
+                @can('create product')  
+                    <a href="{{ url(path: $current_page.'/create') }}" class="btn btn-primary">Add New Product</a>
+                @endcan    
             </div>
         </div>
         <div class="row">
@@ -37,11 +37,12 @@
                             <td>{{ $data->firstItem() + $key }}</td>
                             <td>{{ $dt->product_name }}</td>
                             <td>
-                                
-                                <a href="{{ url($current_page.'/edit/'.$dt->id) }}" class="btn btn-outline-success">Edit</a>
-                                
-                                <a href="{{ url($current_page.'/delete/'.$dt->id) }}" class="btn btn-outline-danger">Delete</a>
-                                
+                                @can('edit product')
+                                    <a href="{{ url($current_page.'/edit/'.$dt->id) }}" class="btn btn-outline-success">Edit</a>
+                                @endcan
+                                @can('delete product')
+                                    <a href="{{ url($current_page.'/delete/'.$dt->id) }}" class="btn btn-outline-danger">Delete</a>
+                                @endcan
                             </td>
                         </tr>
                                 

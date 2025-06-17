@@ -643,6 +643,11 @@ label.form-label{
     color: #00BFFF ;
 }
 
+p.small.text-muted{
+    background-color: #fff;
+}
+
+
 .footer{
     width: 100%;
     display: flex;
