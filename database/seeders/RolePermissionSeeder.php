@@ -48,7 +48,7 @@ class RolePermissionSeeder extends Seeder
         $adminUser = User::updateOrCreate(
             ['email' => 'owner@pineapple.co.id'], //unique condition
             [
-                'name' => 'administrator',
+                'name' => 'Administrator',
                 'password' => bcrypt('admin123'),
             ]
         );
@@ -57,7 +57,7 @@ class RolePermissionSeeder extends Seeder
         $user = User::updateOrCreate(
             ['email' => 'user@pineapple.co.id'], //unique condition
             [
-                'name' => 'user',
+                'name' => 'User',
                 'password' => bcrypt('admin123'),
             ]
         );

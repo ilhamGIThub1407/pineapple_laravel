@@ -25,7 +25,9 @@
 
                     @if($navigations)
                         @foreach($navigations as $navigation)
-                            <p><a href="">{{ $navigation->name }}</a></p>
+                            <p>
+                                <a href="{{ url($navigation->slug) }}">{{ $navigation->name }}</a>
+                            </p>
                         @endforeach
                     @endif    
 
