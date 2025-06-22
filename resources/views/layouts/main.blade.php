@@ -16,8 +16,8 @@
             <header>
                 <div class="head-left">
                     <img src="{{ asset('images/pineapple_Grey.png') }}" alt="logo">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" action="{{ route('search') }}" method="get" class="search">
+                        <input class="form-control me-2" name="search" type="search" id="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
 

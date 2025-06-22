@@ -15,6 +15,9 @@ Route::get('/our-products', [PageController::class, 'products']);
 Route::get('/blog', [PageController::class, 'blogs']);
 Route::get('/order-our-product', [PageController::class, 'order']);
 
+// Search Feat.
+Route::get('/search', [PageController::class, 'search'])->name('search');
+
 Route::post('submit-order', [OrderController::class, 'submitOrder']);
 
 // Authentifications or User Login
