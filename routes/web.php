@@ -8,12 +8,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductManagementController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\PageManagementController;
+use App\Http\Controllers\BlogManagementController;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/about', [PageController::class, 'about']);
-Route::get('/our-products', [PageController::class, 'products']);
+Route::get('/products', [PageController::class, 'product']);
+Route::get('/products/{id}', [PageController::class, 'productDetail']);
 Route::get('/blog', [PageController::class, 'blogs']);
-Route::get('/order-our-product', [PageController::class, 'order']);
+Route::get('/order', [PageController::class, 'order']);
 
 // Search Feat.
 Route::get('/search', [PageController::class, 'search'])->name('search');
@@ -52,3 +55,19 @@ Route::post('/user-management/store', [UserManagementController::class, 'store']
 Route::get('/user-management/edit/{id}', [UserManagementController::class, 'edit'])->middleware('CheckAuth');
 Route::post('/user-management/update', [UserManagementController::class, 'update']);
 Route::get('/user-management/delete/{id}', [UserManagementController::class, 'destroy']);
+
+//Page Management
+Route::get('/page-management', [PageManagementController::class, 'index'])->middleware('CheckAuth');
+Route::get('/page-management/create', [PageManagementController::class, 'create'])->middleware('CheckAuth');
+Route::post('/page-management/store', [PageManagementController::class, 'store']);
+Route::get('/page-management/edit/{id}', [PageManagementController::class, 'edit'])->middleware('CheckAuth');
+Route::post('/page-management/update', [PageManagementController::class, 'update']);
+Route::get('/page-management/delete/{id}', [PageManagementController::class, 'destroy']);
+
+//Blog Management
+Route::get('/blog-management', [BlogManagementController::class, 'index'])->middleware('CheckAuth');
+Route::get('/blog-management/create', [BlogManagementController::class, 'create'])->middleware('CheckAuth');
+Route::post('/blog-management/store', [BlogManagementController::class, 'store']);
+Route::get('/blog-management/edit/{id}', [BlogManagementController::class, 'edit'])->middleware('CheckAuth');
+Route::post('/blog-management/update', [BlogManagementController::class, 'update']);
+Route::get('/blog-management/delete/{id}', [BlogManagementController::class, 'destroy']);

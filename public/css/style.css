@@ -45,6 +45,49 @@ input.form-control.me-2{
     margin-left: 20px;
 }
 
+/* ABOUT */
+.about__section {
+    padding-top: 30px; 
+    padding-bottom: 60px;
+    background-color: #0d0d0d;
+    color: #f1f1f1;
+}
+
+.about__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.about__description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #d9d9d9;
+}
+
+.about__img {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    object-fit: cover;
+    justify-self: center;
+}
+
+/* Product-Detail */
+div.page-title{
+    padding-top: 30px;
+}
+
 .login-container{
     position: relative;
     display: flex;
@@ -679,6 +722,15 @@ p.small.text-muted{
     transition: 0.3s;
     margin: 0 10px;
 }
+
+.tox .tox-promotion-link {
+    display: none !important;
+}
+
+.tox .tox-statusbar__branding a {
+    display: none !important;  
+}
+
 
 
 /* TAKE FULL SCREEN ANIMATION */

@@ -25,19 +25,17 @@
 
                     @if($navigations)
                         @foreach($navigations as $navigation)
-                            <p>
-                                <a href="{{ url($navigation->slug) }}">{{ $navigation->name }}</a>
-                            </p>
+                            @if($navigation->slug !='home')
+                                <p>
+                                    <a href="{{ url($navigation->slug) }}">{{ $navigation->name }}</a>
+                                </p>
+                            @else
+                                <p>
+                                    <a href="{{ url('/') }}">{{ $navigation->name }}</a>
+                                </p>
+                            @endif
                         @endforeach
                     @endif    
-
-                    
-                    <!-- <p><a href="">About</a></p>
-                    <p><a href="">Products</a></p>
-                    <p><a href="">Blogs</a></p>
-                    <p><a href="">Order</a></p>
-                    <p><a href="">Login</a></p> -->
-
                 </div>
 
                 @if(session('isLoggedIn'))
@@ -80,6 +78,7 @@
     @endif
 
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/tinymce/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="{{ asset('js/app.js') }}"></script>

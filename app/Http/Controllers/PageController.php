@@ -50,17 +50,40 @@ class PageController extends Controller
         return view('pages.main.about',
             [
                 'current_page' => 'about',
-                
-
-            
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'page_detail' => Page::where('slug', 'about-us')->first(),
+                'javascript_file' => ''
             ]
         );
     }
 
-    public function products()
+    public function product()
     {
-
+        return view(
+            'pages.main.product',
+            [
+                'current_page' => 'products',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'products' => Product::all(),
+                'javascript_file' => 'main/home.js'
+            ]
+        );
     }
+
+    public function productDetail($id) {
+
+        return view(
+            'pages.main.product-detail',
+            [
+                'current_page' => 'products',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'products' => Product::whereNot('id', $id)->get(),
+                'detail' => Product::find($id),
+                'javascript_file' => ''
+            ]
+        );
+    }
+
 
     public function blogs()
     {
@@ -70,6 +93,14 @@ class PageController extends Controller
 
     public function order()
     {
-
+        return view(
+            'pages.main.order',
+            [
+                'current_page' => 'order',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'products' => Product::all(),
+                'javascript_file' => 'main/home.js'
+            ]
+        );
     }
 }
