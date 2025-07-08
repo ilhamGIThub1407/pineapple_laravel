@@ -30,16 +30,16 @@ class PageController extends Controller
                             ->orWhere('product_description', 'like', "%{$query}%")
                             ->get();
 
-        // $blogs = Page::where('title', 'like', "%{$query}%")
-        //             ->orWhere('content', 'like', "%{$query}%")
-        //             ->where('content_type', 'blog')
-        //             ->get();
+        $blogs = Page::where('title', 'like', "%{$query}%")
+                    ->orWhere('content', 'like', "%{$query}%")
+                    ->where('content_type', 'blog')
+                    ->get();
 
         return view('pages.main.search', [
             'current_page' => 'search',
             'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
             'products' => $products,
-            // 'blogs' => $blogs,
+            'blogs' => $blogs,
             'javascript_file' => ''
         ]);
     }
@@ -87,9 +87,29 @@ class PageController extends Controller
 
     public function blogs()
     {
-
+        return view(
+            'pages.main.blogs',
+            [
+                'current_page' => 'blogs',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'blogs' => Page::where('content_type', 'blog')->get(),
+                'javascript_file' => 'main/home.js'
+            ]
+        );
     }
 
+   public function blogDetail($slug){
+        return view(
+            'pages.main.blog-detail',
+            [
+                'current_page' => 'blog',
+                'navigations' => Navigation::where('category', 'public')->where('status', 'show')->get(),
+                'detail' => Page::where('slug', $slug)->first(),
+                'blogs' =>Page::where('content_type', 'blog')->whereNot('slug', $slug)->get(),
+                'javascript_file' => ''
+            ]
+        );
+    }
 
     public function order()
     {

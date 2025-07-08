@@ -24,6 +24,7 @@
                         <tr>
                             <th>No</th>
                             <th>page title</th>
+                            <th>Content Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>

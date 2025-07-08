@@ -15,7 +15,8 @@ Route::get('/', [PageController::class, 'index']);
 Route::get('/about', [PageController::class, 'about']);
 Route::get('/products', [PageController::class, 'product']);
 Route::get('/products/{id}', [PageController::class, 'productDetail']);
-Route::get('/blog', [PageController::class, 'blogs']);
+Route::get('/blogs', [PageController::class, 'blogs']);
+Route::get('/blog/{slug}', [PageController::class, 'blogDetail']);
 Route::get('/order', [PageController::class, 'order']);
 
 // Search Feat.

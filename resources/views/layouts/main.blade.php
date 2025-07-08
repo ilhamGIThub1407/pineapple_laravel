@@ -12,54 +12,60 @@
 
 <body>
     @if($current_page != 'login')
-        <div class="container">
-            <header>
-                <div class="head-left">
+    <div class="container">
+        <header>
+            <div class="head-left">
+                <a href="{{ url('/') }}">
                     <img src="{{ asset('images/pineapple_Grey.png') }}" alt="logo">
-                    <form class="d-flex" role="search" action="{{ route('search') }}" method="get" class="search">
-                        <input class="form-control me-2" name="search" type="search" id="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
-                    </form>
-                </div>
+                </a>
 
-                <div class="head-right">
+                <form class="d-flex" role="search" action="{{ route('search') }}" method="get" class="search">
+                    <input class="form-control me-2" name="search" type="search" id="search" value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
 
-                    @if($navigations)
-                        @foreach($navigations as $navigation)
-                            @if($navigation->slug !='home')
-                                <p>
-                                    <a href="{{ url($navigation->slug) }}">{{ $navigation->name }}</a>
-                                </p>
-                            @else
-                                <p>
-                                    <a href="{{ url('/') }}">{{ $navigation->name }}</a>
-                                </p>
-                            @endif
-                        @endforeach
-                    @endif    
-                </div>
+            <div class="head-right">
 
-                @if(session('isLoggedIn'))
-                    <li class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expand="false">
-                            {{ session('user_name') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
-                            @csrf
-                        </form>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="javascript:avoid(0); " class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); ">
-                                    Logout
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
+                @if($navigations)
+                    @foreach($navigations as $navigation)
+                        @if($navigation->slug !='home')
+                        <p>
+                            <a href="{{ url($navigation->slug) }}">{{ $navigation->name }}</a>
+                        </p>
+                        @else
+                        <p>
+                            <a href="{{ url('/') }}">{{ $navigation->name }}</a>
+                        </p>
+                        @endif
+                    @endforeach
                 @endif
+            </div>
+
+            @if(session('isLoggedIn'))
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expand="false">
+                    {{ session('user_name') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="post" class="d-none">
+                    @csrf
+                </form>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ url('/dashboard') }}" class="dropdown-item">
+                            Dashboard
+                        </a>
+                        <a href="javascript:avoid(0); " class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit(); ">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            @endif
 
 
-            </header>
-        </div>
+        </header>
+    </div>
     @endif
 
     @yield('container')

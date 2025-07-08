@@ -10,7 +10,10 @@
         <div class="gadget-info">
             <h1>NEW RELEASE</h1>
             <p>Samsung Galaxy Blackpink Ver.</p>
-            <button>Pre Order Now</button>
+            <button onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' });" class="btn btn-primary">
+                Pre Order Now
+            </button>
+
         </div>
 
         <h1 class="samsung-text">Long Lasting Battery Life</h1>
@@ -39,18 +42,20 @@
 
     <div class="info-cards autoDisplay">
         @foreach($products as $product)
-            <div class="card autoDisplay">
-                <h1>{{ $product->product_name }}</h1>
-                <p>{{ $product->product_description }}</p>
+        <div class="card autoDisplay">
+            <h1>{{ $product->product_name }}</h1>
+            <p>{{ $product->product_description }}</p>
 
-                <video src="{{ asset($product->product_video) }}" autoplay loop muted plays-inline></video>
+            <video src="{{ asset($product->product_video) }}" autoplay loop muted plays-inline></video>
+            <a href="{{ url('products/'.$product->id) }}">
                 <button>Details</button>
-            </div>
+            </a>
+        </div>
         @endforeach
     </div>
 </section>
 
-<section class="order">
+<section class="order" id="order">
     <div class="container">
         <h2 class="mt-4 mb-4">Order a Gadget</h2>
 
@@ -130,7 +135,10 @@
 <section class="contact-section">
     <p>Join PineApple</p>
     <h1>One account. Any device. Just for you.</h1>
-    <button>LOGIN / SIGN-UP</button>
+    <a href="{{ url('login') }}">
+        <button>LOGIN / SIGN-UP</button>
+    </a>
+
     <img class="img1" src="{{ asset('images/products/lisa_home.png') }}" alt="contact-img">
     <img class="img2" src="{{ asset('images/products/blackpink_home.png') }}" alt="contact-img">
     <img class="img3" src="{{ asset('images/products/samsung_home.png') }}" alt="contact-img">

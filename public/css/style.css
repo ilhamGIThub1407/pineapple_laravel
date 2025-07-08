@@ -563,6 +563,90 @@ input#submit.btn.btn-primary:hover{
     margin-bottom: 20px;
 }
 
+/* Blogs section */
+
+section.section.featured{
+    padding-top: 50px;
+}
+
+.section-subtitle { 
+    padding-block: 15px; 
+}
+
+.img-holder {
+  /* aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray-1);
+  overflow: hidden; */
+
+  width: 100%;
+  max-width: 320px; /* Batasi lebar maksimal agar tidak terlalu besar */
+  aspect-ratio: 3 / 4; /* Atur rasio gambar secara proporsional */
+  background-color: #1e1e1e;
+  overflow: hidden;
+  margin: auto;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.has-scrollbar {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: inline mandatory;
+  padding-block-end: 20px;
+  margin-block-end: -20px;
+  margin-inline: -15px;
+  padding-inline: 15px;
+}
+
+.has-scrollbar::-webkit-scrollbar { 
+  height: 10px; 
+}
+
+.has-scrollbar::-webkit-scrollbar-track { 
+ background: #2c2c2c; 
+
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #00bcd4;
+  border-radius: var(--radius-pill);
+}
+
+.has-scrollbar::-webkit-scrollbar-button { width: 10px; }
+
+.has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: #00acc1; }
+
+.scrollbar-item {
+  min-width: auto;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+.blog-card {
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+}
+
+.blog-card .card-banner {
+  position: relative;
+  border-radius: var(--radius-16);
+  margin-block-end: 15px;
+}
+
+
+
+
+
+
+
+
 /* Custom Select Styling (optional) */
 select option {
     background-color: #1a1a1a;
@@ -646,8 +730,8 @@ div.container{
 
 .content {
     padding: 40px 20px;
-    background-color: #0d0d0d; /* hitam elegan */
-    color: #f1f1f1; /* teks terang */
+    background-color: #0d0d0d; 
+    color: #f1f1f1; 
 }
 
 .content h2 {
@@ -747,112 +831,6 @@ p.small.text-muted{
         margin-bottom: 100px;
     }
 }
-
-/* AUTO DISPLAY ANIMATION */
-/* .autoDisplay{
-    animation: autoDisplayAnimation both;
-        animation-timeline: view(70% 5%);
-    }
-
-@keyframes autoDisplayAnimation{
-    from{
-        opacity: 0;
-        transform: translate(200px) scale(0.3);
-    } to{
-        opacity: 1;
-        transform: translate(0) scale(1);
-    }
-} */
-
-/* @media screen and (max-widht: 600px) { 
-    .head-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-left: 0;
-      }
-  
-      .head-left img {
-        width: 30px;
-        height: 40px;
-        margin-left: 0;
-      }
-  
-      .head-left .form-control {
-        width: 100%;
-        font-size: 14px;
-      }
-
-      .gadget-section {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    .gadget-vid {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-    
-    .gadget-video {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-    
-    .gadget-info {
-        position: absolute;
-        top: 20%;
-        left: 10%;
-        color: white;
-        z-index: 2;
-    }
-    
-    .gadget-info h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    
-    .gadget-info p {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .gadget-info button {
-        padding: 10px 20px;
-        font-size: 1rem;
-        background-color: #ff4081;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .samsung-text {
-        position: absolute;
-        bottom: 15%;
-        left: 10%;
-        color: white;
-        font-size: 2rem;
-        z-index: 2;
-    }
-    
-    .next-btn {
-        position: absolute;
-        bottom: 5%;
-        right: 5%;
-        color: white;
-        font-size: 1rem;
-        padding: 8px 15px;
-        background-color: rgba(0,0,0,0.5);
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 2;
-    }
-
-
-} */
 
 /* ===== 1024px (Mini Laptop) ===== */
 @media screen and (max-width: 1024px) {
