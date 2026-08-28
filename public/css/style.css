@@ -3,6 +3,15 @@ body{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+img, video{
+    max-width: 100%;
 }
 
 .container{
@@ -15,7 +24,7 @@ body{
 }
 
 header{
-    width: 100vw;
+    width: 100%;
     position: fixed;
     top: 0;
     right: 0;
@@ -693,6 +702,20 @@ select option {
     color: white;
 }
 
+.contact-section > p,
+.contact-section > h1,
+.contact-section > a{
+    position: relative;
+    z-index: 2;
+}
+
+.contact-section > a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
 .contact-section h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 70px;
@@ -708,20 +731,36 @@ select option {
 }
 
 .contact-section button{
-    padding: 10px 25px;
-    border: 1px solid gray;
-    background-color: #000000;
+    min-width: 178px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 1px solid #00bcd4;
+    background-color: #101010;
     color: white;
-    border-radius: 20px;
-    box-shadow: 0 0 5px lightgray;
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.35);
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     margin-top: 10px;
 }
 
 .contact-section button:hover{
-    box-shadow: 0 0 15px lightgray;
-    opacity: 0.7;
+    background-color: #00bcd4;
+    color: #000000;
+    box-shadow: 0 0 18px rgba(0, 188, 212, 0.65);
+    transform: translateY(-2px);
+}
+
+.contact-section button:focus-visible{
+    outline: 3px solid #f0a2b4;
+    outline-offset: 4px;
+}
+
+.contact-section > img{
+    z-index: 0;
+    pointer-events: none;
 }
 
 div.container{
@@ -805,6 +844,350 @@ p.small.text-muted{
     border: 1px solid rgb(0, 130, 211);
     transition: 0.3s;
     margin: 0 10px;
+}
+
+/* Keep every public section inside the viewport on small screens. */
+@media screen and (max-width: 768px) {
+    header{
+        min-height: 74px;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .head-left{
+        flex-direction: row;
+        align-items: center;
+        flex: 0 0 auto;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    .head-left img{
+        width: 28px;
+        height: auto;
+        margin: 0;
+    }
+
+    .head-left form{
+        display: none !important;
+    }
+
+    .head-right{
+        min-width: 0;
+        margin: 0;
+        gap: 2px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .head-right::-webkit-scrollbar{
+        display: none;
+    }
+
+    .head-right p{
+        margin: 0;
+    }
+
+    .head-right a{
+        display: block;
+        padding: 8px 7px;
+        font-size: 13px;
+    }
+
+    header > .nav-item{
+        display: none;
+    }
+
+    .gadget-section{
+        height: calc(100svh - 74px);
+        min-height: 520px;
+        margin-top: 74px;
+    }
+
+    .gadget-vid{
+        height: 100%;
+        margin-top: 0;
+    }
+
+    .gadget-video{
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gadget-info{
+        top: 17%;
+        left: 7%;
+        width: 42%;
+        padding: 0;
+    }
+
+    .gadget-info h1{
+        font-size: clamp(28px, 10vw, 52px);
+        line-height: .95;
+        margin: 0 0 14px;
+    }
+
+    .gadget-info p{
+        font-size: 13px;
+        line-height: 1.35;
+        margin: 0 0 14px;
+    }
+
+    .gadget-info button{
+        padding: 8px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .samsung-text{
+        right: 6%;
+        bottom: 23%;
+        max-width: 42%;
+        font-size: clamp(24px, 8vw, 42px);
+        line-height: .95;
+        text-align: right;
+    }
+
+    .next-btn{
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        bottom: 38%;
+        transform: translateX(-50%);
+        font-size: 12px;
+    }
+
+    .about-section{
+        width: 100%;
+        margin-top: 0;
+        padding: 56px 16px 20px;
+        text-align: center;
+    }
+
+    .about-section p{
+        font-size: 16px;
+    }
+
+    .about-section h1{
+        max-width: 100%;
+        font-size: clamp(34px, 12vw, 70px);
+        line-height: 1;
+        overflow-wrap: anywhere;
+    }
+
+    .image-box{
+        width: min(100%, 360px);
+        height: auto;
+        aspect-ratio: 360 / 510;
+        border-radius: 24px;
+    }
+
+    .about-section h4{
+        margin-top: 28px;
+        font-size: 18px;
+    }
+
+    .about-section h5{
+        width: 100%;
+        padding: 12px 0;
+        line-height: 1.6;
+        font-size: 14px;
+    }
+
+    .info-section{
+        width: 100%;
+        margin-top: 48px;
+        padding: 0 16px;
+    }
+
+    .info-section h3{
+        font-size: 22px;
+        line-height: 1.25;
+    }
+
+    .info-section p{
+        line-height: 1.5;
+    }
+
+    .info-cards{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2){
+        grid-column: auto;
+    }
+
+    .card,
+    .card:nth-child(2){
+        min-height: 360px;
+        height: 58vh;
+        border-radius: 14px;
+    }
+
+    .card h1{
+        max-width: 88%;
+        font-size: clamp(28px, 9vw, 52px);
+        line-height: 1;
+        overflow-wrap: anywhere;
+    }
+
+    .card p{
+        top: 58px;
+        max-width: 72%;
+        font-size: 14px;
+        line-height: 1.35;
+    }
+
+    .order{
+        padding: 56px 16px 30px;
+    }
+
+    .order .container{
+        width: 100%;
+    }
+
+    .order h2{
+        font-size: 28px;
+    }
+
+    .order-form p{
+        line-height: 1.5;
+    }
+
+    .order-form .form-control,
+    .order-form select,
+    .order-form textarea{
+        margin: 0;
+    }
+
+    .contact-section{
+        min-height: 430px;
+        margin: 40px 0 60px;
+        padding: 0 16px;
+        overflow: hidden;
+    }
+
+    .contact-section p{
+        margin-top: 36px;
+    }
+
+    .contact-section h1{
+        max-width: 90%;
+        font-size: clamp(28px, 10vw, 54px);
+        line-height: 1;
+    }
+
+    .contact-section > a{
+        display: inline-flex;
+        min-height: 48px;
+    }
+
+    .contact-section button{
+        min-width: min(220px, 90vw);
+        min-height: 48px;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .contact-section .img1{
+        right: -45px;
+        top: 52%;
+        height: 220px;
+    }
+
+    .contact-section .img2{
+        left: -15px;
+        top: 50%;
+        height: 120px;
+    }
+
+    .contact-section .img3{
+        left: 50%;
+        bottom: -60px;
+        width: 150px;
+        height: 150px;
+        transform: translateX(-50%);
+    }
+
+    .page-title,
+    .content{
+        padding: 92px 16px 30px;
+    }
+
+    .page-title .container,
+    .content .container{
+        width: 100%;
+    }
+
+    .page-title h1,
+    .content h1{
+        font-size: 28px;
+        overflow-wrap: anywhere;
+    }
+
+    .page-content > [class*="col-"]{
+        width: 100%;
+    }
+
+    .content .list-group{
+        margin-bottom: 24px;
+    }
+
+    .content video{
+        max-height: 55vh !important;
+    }
+
+    section.section.featured{
+        padding: 92px 16px 30px;
+    }
+
+    section.section.featured > .container{
+        width: 100%;
+    }
+
+    .has-scrollbar{
+        gap: 14px;
+        margin-inline: 0;
+        padding-inline: 0;
+    }
+
+    .scrollbar-item{
+        width: min(78vw, 300px);
+    }
+
+    .blog-card{
+        max-width: none;
+    }
+
+    .footer{
+        min-height: 150px;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 18px 12px;
+    }
+
+    .footer p{
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .footer ul{
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+
+    .footer a{
+        display: block;
+        margin: 0 4px;
+    }
 }
 
 .tox .tox-promotion-link {
@@ -1069,3 +1452,162 @@ p.small.text-muted{
       }
 
   }
+
+/* Final mobile overrides for the legacy breakpoint rules above. */
+@media screen and (max-width: 768px) {
+    header{
+        width: 100%;
+        padding: 10px 16px;
+    }
+
+    .head-left{
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+    }
+
+    .head-left img{
+        width: 28px;
+        height: auto;
+        margin: 0;
+    }
+
+    .head-left form{
+        display: none !important;
+    }
+
+    .gadget-section{
+        height: calc(100svh - 74px);
+        min-height: 520px;
+        margin-top: 74px;
+    }
+
+    .gadget-vid,
+    .gadget-video{
+        height: 100%;
+    }
+
+    .gadget-vid{
+        margin-top: 0;
+    }
+
+    .gadget-video{
+        object-fit: cover;
+    }
+
+    .gadget-info{
+        top: 17%;
+        left: 7%;
+        width: 42%;
+        padding: 0;
+    }
+
+    .gadget-info h1{
+        font-size: clamp(28px, 10vw, 52px);
+        line-height: .95;
+        margin: 0 0 14px;
+    }
+
+    .gadget-info p{
+        font-size: 13px;
+        line-height: 1.35;
+        margin: 0 0 14px;
+    }
+
+    .gadget-info button{
+        padding: 8px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .samsung-text{
+        right: 6%;
+        bottom: 23%;
+        max-width: 42%;
+        font-size: clamp(24px, 8vw, 42px);
+        line-height: .95;
+        text-align: right;
+    }
+
+    .next-btn{
+        left: 50%;
+        bottom: 38%;
+        transform: translateX(-50%);
+    }
+
+    .contact-section img{
+        width: auto;
+        margin: 0;
+    }
+
+    .contact-section .img1{
+        width: auto;
+        height: 220px;
+    }
+
+    .contact-section .img2{
+        width: auto;
+        height: 120px;
+    }
+
+    .contact-section .img3{
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Blogs carousel: one readable card per mobile viewport. */
+    section.section.featured{
+        width: 100%;
+        padding-inline: 0;
+        overflow: hidden;
+    }
+
+    section.section.featured > .container{
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+
+    section.section.featured .section-subtitle{
+        padding-inline: 16px;
+    }
+
+    .has-scrollbar{
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 16px 20px;
+        list-style: none;
+        align-items: flex-start;
+        gap: 16px;
+        scroll-padding-inline: 16px;
+    }
+
+    .scrollbar-item{
+        width: calc(100vw - 32px);
+        min-width: calc(100vw - 32px);
+        max-width: 420px;
+        scroll-snap-align: start;
+    }
+
+    .blog-card{
+        width: 100%;
+        max-width: none;
+    }
+
+    .blog-card .card-banner,
+    .blog-card .img-holder{
+        width: 100%;
+        max-width: none;
+    }
+
+    .blog-card .card-content{
+        padding: 0 4px;
+    }
+
+    .blog-card .card-title{
+        display: block;
+        overflow-wrap: anywhere;
+        line-height: 1.25;
+    }
+}
