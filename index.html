@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PineApple — portfolio showcase for a modern gadget and lifestyle e-commerce brand."
+    />
+    <title>PineApple | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#home" aria-label="PineApple home">
+          <span class="brand-mark">P</span>
+          <span>PineApple</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">NEW RELEASE</p>
+            <h1>Premium gadgets for the next generation.</h1>
+            <p class="lead">
+              PineApple builds an elevated digital shopping experience around the latest
+              tech, premium devices, and modern lifestyle products.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#products">Explore Products</a>
+              <a class="btn btn-secondary" href="#contact">Hire Me</a>
+            </div>
+            <ul class="hero-meta">
+              <li>Laravel-based ecommerce flow</li>
+              <li>Product showcase + admin management</li>
+              <li>Responsive portfolio presentation</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="device-card large">
+              <img src="images/banner/blackpink1.jpeg" alt="Blackpink gadget collection" />
+            </div>
+            <div class="device-card small">
+              <img src="images/products/lisa_home.png" alt="Product highlight" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container narrow">
+          <p class="section-tag">WELCOME TO PINEAPPLE</p>
+          <h2>“Think the same, conform completely.”</h2>
+          <p>
+            PineApple is a lifestyle and gadget brand concept designed to deliver a premium
+            online shopping experience. The project combines product storytelling, featured
+            collections, and a polished digital storefront that feels modern, premium, and conversion-ready.
+          </p>
+        </div>
+      </section>
+
+      <section id="products" class="section products">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">FEATURED COLLECTION</p>
+            <h2>Curated tech, designed for the way you live.</h2>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="images/products/blackpink_home.png" alt="Samsung Galaxy Blackpink" />
+              <div class="product-copy">
+                <h3>Samsung Galaxy Blackpink</h3>
+                <p>Limited edition design with premium display and long battery life.</p>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img src="images/products/lisa_home.png" alt="Premium product 2" />
+              <div class="product-copy">
+                <h3>Signature Lifestyle Tech</h3>
+                <p>Performance-first products built for creators, professionals, and modern lifestyles.</p>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img src="images/products/samsung_home.png" alt="Premium product 3" />
+              <div class="product-copy">
+                <h3>Smart Everyday Essentials</h3>
+                <p>Elegant and practical products that merge functionality with style.</p>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <img src="images/banner/blackpink1.jpeg" alt="Premium product 4" />
+              <div class="product-copy">
+                <h3>Modern Gadget Experience</h3>
+                <p>High-end product stories, clean UX, and optimized mobile interactions.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section experience">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-tag">PROJECT HIGHLIGHTS</p>
+            <h2>Built to present a strong digital portfolio.</h2>
+          </div>
+
+          <div class="experience-grid">
+            <div class="experience-item">
+              <span>01</span>
+              <h3>Modern store layout</h3>
+              <p>Stylish homepage, featured sections, and premium visual hierarchy.</p>
+            </div>
+            <div class="experience-item">
+              <span>02</span>
+              <h3>Responsive design</h3>
+              <p>Optimized for desktop, tablet, and mobile screens.</p>
+            </div>
+            <div class="experience-item">
+              <span>03</span>
+              <h3>Administrative workflow</h3>
+              <p>Includes admin-ready product and content management concepts.</p>
+            </div>
+            <div class="experience-item">
+              <span>04</span>
+              <h3>Portfolio-ready presentation</h3>
+              <p>Designed to be accessible on static hosting platforms such as Netlify.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section media-showcase">
+        <div class="container">
+          <video autoplay muted loop playsinline aria-label="Brand video preview">
+            <source src="videos/blackpink.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-brand">PineApple</p>
+          <p>Portfolio showcase for product, brand, and commerce experiences.</p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="tel:+6281234567890">+62 812-3456-7890</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; <span id="year"></span> PineApple. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>
